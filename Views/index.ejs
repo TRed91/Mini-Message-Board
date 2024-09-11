@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <hr>
+    <div>
+        <a href="/new">New Message</a>
+    </div>
+    <ul>
+        <% messages.map(message => { %>
+            <li>
+                <div>
+                    <h3>From: <%=message.user%></h3>
+                    <p><%=message.text%></p>
+                    <p>Date: <%=message.added.getMonth()%>-<%=message.added.getDate()%>-<%=message.added.getFullYear()%></p>
+                </div>
+                <form method="post" action="/details" class="invisible">
+                    <input type="text" hidden name="author" value="<%=message.user%>">
+                    <input type="text" hidden name="msg" value="<%=message.text%>">
+                    <input type="text" hidden name="time" value="<%=message.added%>">
+                    <button type="submit">Open</button>
+                </form>
+            </li>
+       <% }) %>   
+    </ul>
+</body>
+</html>
