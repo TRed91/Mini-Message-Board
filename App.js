@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('node:path');
 const indexRouter = require('./Routes/index');
+require('dotenv').config();
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.set("view engine", "ejs");
 // Use Routes
 app.use("/", indexRouter);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(3000, () => {
     console.log(`Express app listening to Port ${PORT}`);
 });
