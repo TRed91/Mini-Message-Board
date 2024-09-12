@@ -12,7 +12,7 @@ app.use(express.static("Public"));
 app.use(express.urlencoded({extended: true}));
 
 // Enable EJS
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "Views"));
 app.set("view engine", "ejs");
 
 // Use Routes
