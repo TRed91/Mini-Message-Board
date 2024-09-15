@@ -16,14 +16,14 @@
         <% messages.map(message => { %>
             <li>
                 <div>
-                    <h3>From: <%=message.user%></h3>
-                    <p><%=message.text%></p>
-                    <p>Date: <%=message.added.getMonth()%>-<%=message.added.getDate()%>-<%=message.added.getFullYear()%></p>
+                    <h3>From: <%=message.username%></h3>
+                    <p><%=message.message%></p>
+                    <p>Date: <%=message.date%></p>
                 </div>
                 <form method="post" action="/details" class="invisible">
-                    <input type="text" hidden name="author" value="<%=message.user%>">
-                    <input type="text" hidden name="msg" value="<%=message.text%>">
-                    <input type="text" hidden name="time" value="<%=message.added%>">
+                    <input type="text" hidden name="author" value="<%=message.username%>">
+                    <input type="text" hidden name="msg" value="<%=message.message%>">
+                    <input type="text" hidden name="time" value="<%=message.date%>">
                     <button type="submit">Open</button>
                 </form>
             </li>
